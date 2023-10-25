@@ -69,7 +69,6 @@ def callback_message(callback):
             bot.send_message(callback.message.chat.id, 'Напишите название команды для нового поиска')
             bot.register_next_step_handler(callback.message, search)
     elif callback.data == 'In':
-        bot.send_message(callback.message.chat.id, callback.data)
         response = requests.get(f'https://footapi7.p.rapidapi.com/api/team/{team_id}/transfers',
                                 headers=config.headers)
         data = response.json()
